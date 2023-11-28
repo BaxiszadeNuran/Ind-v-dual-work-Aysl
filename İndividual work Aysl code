@@ -1,0 +1,22 @@
+import random
+n =int(input('Matrisin sətir ölçüsünü daxil edin='))
+m=int(input('Matrisin sutun ölçüsünü daxil edin='))
+A = [[random.randint(-10, 10) for _ in range(n)] for _ in range(n)]
+for row in A:
+  print(row)
+# Ən böyük mənfi elementi qeyd etmək üçün bir dəyişən təyin et
+en_boyu_menfi = None
+
+# Matrisin hər bir elementini yoxla
+for n in A:
+    for element in n:
+        # Əgər element mənfi və ən böyük mənfi elementdən böyükdirsə
+        if element < 0 and (en_boyu_menfi is None or element > en_boyu_menfi):
+            # Ən böyük mənfi elementi yenilə
+            en_boyu_menfi = element
+
+# Əgər ən böyük mənfi element tapıldısa, onu çap et, əks halda "Mənfi element yoxdur" mesajını çap et
+if en_boyu_menfi is not None:
+    print(f"Ən böyük mənfi element: {en_boyu_menfi}")
+else:
+    print("Mənfi element yoxdur")
